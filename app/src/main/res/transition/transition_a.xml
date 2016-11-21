@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<explode xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 不需要指定id的view执行转场动画，其他的都执行 -->
+  <targets>
+      <target android:excludeId="@android:id/navigationBarBackground"/>
+      <target android:excludeId="@android:id/statusBarBackground"/>
+  </targets>
+</explode>

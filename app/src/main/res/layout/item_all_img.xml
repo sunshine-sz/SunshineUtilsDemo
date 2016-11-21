@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <!--<com.facebook.drawee.com.sunshine.rxjavademo.view.SimpleDraweeView
+        android:id="@+id/item_image_view"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        fresco:actualImageScaleType="centerCrop"
+        fresco:failureImage="@mipmap/failure"
+        fresco:failureImageScaleType="centerInside"
+        fresco:placeholderImage="@mipmap/zw"
+        fresco:placeholderImageScaleType="fitCenter"/>-->
+    <ImageView
+        android:id="@+id/item_image_view"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/zw"/>
+
+    <ImageView
+        android:id="@+id/child_checkbox"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:button="@null"
+        android:src="@drawable/select_normal"
+        android:layout_alignParentRight="true"
+        android:layout_margin="5dp"/>
+
+</RelativeLayout>

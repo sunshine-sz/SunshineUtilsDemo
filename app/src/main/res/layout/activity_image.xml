@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    tools:context=".ui.ImageActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="175dp"
+        android:background="@android:color/white"
+        android:layout_centerInParent="true" >
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="175dp"
+            android:layout_centerInParent="true"
+            android:layout_margin="5dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="175dp"
+            android:layout_margin="5dp">
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="20dp" >
+
+            <LinearLayout
+                android:id="@+id/ll_guide_point_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+            </LinearLayout>
+
+            <View
+                android:id="@+id/v_guide_point_jd"
+                android:layout_width="6dip"
+                android:layout_height="6dip"
+                android:background="@mipmap/guide_point_red_bg"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+    <com.sunshine.rxjavademo.view.DayPickerView
+        android:id="@+id/dpv_calendar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:colorCurrentDay="@color/colorAccent"
+        app:colorSelectedDayBackground="@color/colorAccent"
+        app:colorSelectedDayText="@color/selected_day_text"
+        app:colorPreviousDayText="#727272"
+        app:colorNormalDayText="#727272"
+        app:colorYearMonthText="#727272"
+        app:colorWeekText="#727272"
+        app:colorBusyDaysBg="#727272"
+        app:colorInValidDaysBg="#727272"
+        app:colorBusyDaysText="#FFFFFF"
+        app:colorInValidDaysText="#FFFFFF"
+
+        app:textSizeDay="14sp"
+        app:textSizeTag="12sp"
+        app:textSizeYearMonth="16sp"
+        app:textSizeWeek="14sp"
+        app:headerMonthHeight="50dp"
+        app:selectedDayRadius="20dp"
+        app:calendarHeight="320dp"
+        app:enablePreviousDay="true"/>
+</LinearLayout>

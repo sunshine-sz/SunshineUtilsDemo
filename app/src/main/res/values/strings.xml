@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">RxJavaDemo</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- 日历用到的typeface -->
+    <string name="sans_serif" translatable="false">sans-serif</string>
+</resources>

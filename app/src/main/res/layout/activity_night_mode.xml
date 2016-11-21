@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?attr/myBackground"
+    tools:context="com.sunshine.rxjavademo.ui.NightModeActivity">
+    <CheckBox
+        android:id="@+id/cb_mode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="夜间模式"/>
+    <TextView
+        android:id="@+id/tv_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="我是TextView"
+        android:textColor="@android:color/black"
+        android:gravity="center"/>
+    <ListView
+        android:id="@+id/list_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@color/colorPrimary"
+        android:dividerHeight="1dp"/>
+</LinearLayout>
