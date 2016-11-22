@@ -16,6 +16,7 @@ import android.view.MotionEvent;
 import android.view.View;
 
 import com.fitsleep.sunshinelibrary.utils.CalendarUtils;
+import com.fitsleep.sunshinelibrary.utils.ConvertUtils;
 import com.sunshine.rxjavademo.R;
 import com.sunshine.rxjavademo.adapter.SimpleMonthAdapter;
 
@@ -35,7 +36,7 @@ public class SimpleMonthView extends View {
     public static final String VIEW_PARAMS_SELECTED_LAST_DATE = "selected_last_date";
     public static final String VIEW_PARAMS_NEAREST_DATE = "mNearestDay";
 
-//    public static final String VIEW_PARAMS_HEIGHT = "height";
+    //    public static final String VIEW_PARAMS_HEIGHT = "height";
     public static final String VIEW_PARAMS_MONTH = "month";
     public static final String VIEW_PARAMS_YEAR = "year";
     public static final String VIEW_PARAMS_WEEK_START = "week_start";
@@ -48,7 +49,7 @@ public class SimpleMonthView extends View {
     protected static int MINI_DAY_NUMBER_TEXT_SIZE;                     // 日期字体的最小尺寸
     private static int TAG_TEXT_SIZE;                                   // 标签字体大小
     protected static int MIN_HEIGHT = 10;                               // 最小高度
-//    protected static int MONTH_DAY_LABEL_TEXT_SIZE;                     // 头部的星期几的字体大小
+    //    protected static int MONTH_DAY_LABEL_TEXT_SIZE;                     // 头部的星期几的字体大小
     protected static int MONTH_HEADER_SIZE;                             // 头部的高度（包括年份月份，星期几）
     protected static int YEAR_MONTH_TEXT_SIZE;                         // 头部年份月份的字体大小
     protected static int WEEK_TEXT_SIZE;                                // 头部年份月份的字体大小
@@ -69,16 +70,16 @@ public class SimpleMonthView extends View {
     protected Paint mWeekTextPaint;                     // 头部星期几的字体画笔
     protected Paint mDayTextPaint;
     protected Paint mTagTextPaint;                      // 日期底部的文字画笔
-//    protected Paint mTitleBGPaint;
+    //    protected Paint mTitleBGPaint;
     protected Paint mYearMonthPaint;                    // 头部的画笔
     protected Paint mSelectedDayBgPaint;
     protected Paint mBusyDayBgPaint;
     protected Paint mInValidDayBgPaint;
-//    protected Paint mSelectedDayTextPaint;
+    //    protected Paint mSelectedDayTextPaint;
     protected int mCurrentDayTextColor;                 // 今天的字体颜色
     protected int mYearMonthTextColor;                  // 头部年份和月份字体颜色
     protected int mWeekTextColor;                       // 头部星期几字体颜色
-//    protected int mDayTextColor;
+    //    protected int mDayTextColor;
     protected int mDayTextColor;                        // 日期字体颜色
     protected int mSelectedDayTextColor;                // 被选中的日期字体颜色
     protected int mPreviousDayTextColor;                // 过去的字体颜色
@@ -96,7 +97,7 @@ public class SimpleMonthView extends View {
     protected int mNumDays = 7;                 // 一行几列
     protected int mNumCells;                    // 一个月有多少天
     private int mDayOfWeekStart = 0;            // 日期对应星期几
-//    protected Boolean mDrawRect;              // 圆角还是圆形
+    //    protected Boolean mDrawRect;              // 圆角还是圆形
     protected int mRowHeight = DEFAULT_HEIGHT;  // 行高
     protected int mWidth;                       // simpleMonthView的宽度
 
@@ -114,10 +115,10 @@ public class SimpleMonthView extends View {
 
     private OnDayClickListener mOnDayClickListener;
 
-   SimpleMonthAdapter.CalendarDay mStartDate;          // 入住日期
+    SimpleMonthAdapter.CalendarDay mStartDate;          // 入住日期
     SimpleMonthAdapter.CalendarDay mEndDate;            // 退房日期
 
-   SimpleMonthAdapter.CalendarDay cellCalendar;        // cell的对应的日期
+    SimpleMonthAdapter.CalendarDay cellCalendar;        // cell的对应的日期
 
     /**
      * @param context
@@ -284,7 +285,8 @@ public class SimpleMonthView extends View {
             boolean isToady = false;
             if (mHasToday && (mToday == day)) {
                 isToady = true;
-                canvas.drawText("今天", x, getTextYCenter(mDayTextPaint, y - DAY_SELECTED_RECT_SIZE / 2), mDayTextPaint);
+//                drawDayBg(canvas, x, y, mSelectedDayBgPaint);
+                canvas.drawText("今天", x, y, mDayTextPaint);
             }
             // 已过去的日期
             boolean isPrevDay = false;
@@ -301,10 +303,10 @@ public class SimpleMonthView extends View {
                 isBeginDay = true;
                 drawDayBg(canvas, x, y, mSelectedDayBgPaint);
                 mDayTextPaint.setColor(mSelectedDayTextColor);
-                canvas.drawText("入住", x, getTextYCenter(mDayTextPaint, y + DAY_SELECTED_RECT_SIZE / 2), mDayTextPaint);
-                if(isToady) {
-                    canvas.drawText("今天", x, getTextYCenter(mDayTextPaint, y - DAY_SELECTED_RECT_SIZE / 2), mDayTextPaint);
-                }
+//                canvas.drawText("入住", x, getTextYCenter(mDayTextPaint, y + DAY_SELECTED_RECT_SIZE / 2), mDayTextPaint);
+//                if(isToady) {
+//                    canvas.drawText("今天", x, getTextYCenter(mDayTextPaint, y - DAY_SELECTED_RECT_SIZE / 2), mDayTextPaint);
+//                }
             }
 
             boolean isLastDay = false;
@@ -313,7 +315,7 @@ public class SimpleMonthView extends View {
                 isLastDay = true;
                 drawDayBg(canvas, x, y, mSelectedDayBgPaint);
                 mDayTextPaint.setColor(mSelectedDayTextColor);
-                canvas.drawText("退房", x, getTextYCenter(mDayTextPaint, y + DAY_SELECTED_RECT_SIZE / 2), mDayTextPaint);
+//                canvas.drawText("退房", x, getTextYCenter(mDayTextPaint, y + DAY_SELECTED_RECT_SIZE / 2), mDayTextPaint);
             }
 
             // 在入住和退房之间的日期
@@ -321,7 +323,7 @@ public class SimpleMonthView extends View {
                 mDayTextPaint.setColor(mSelectedDayTextColor);
                 drawDayBg(canvas, x, y, mSelectedDayBgPaint);
                 // 标签变为白色
-                mTagTextPaint.setColor(Color.WHITE);
+//                mTagTextPaint.setColor(Color.WHITE);
 //                canvas.drawText(String.format("%d", day), x, y - DAY_SELECTED_RECT_SIZE / 2, mDayTextPaint);
             }
 
@@ -412,7 +414,7 @@ public class SimpleMonthView extends View {
 
             // 绘制日期
             if (!isToady && !isPrevDay && !isInvalidDays && !isBusyDay) {
-                canvas.drawText(String.format("%d", day), x, getTextYCenter(mTagTextPaint, y - DAY_SELECTED_RECT_SIZE / 2), mDayTextPaint);
+                canvas.drawText(String.format("%d", day), x, y, mDayTextPaint);
             }
 
             dayOffset++;
@@ -426,6 +428,7 @@ public class SimpleMonthView extends View {
 
     /**
      * 根据坐标获取对应的日期
+     *
      * @param x
      * @param y
      * @return
@@ -670,13 +673,14 @@ public class SimpleMonthView extends View {
      * @param y
      */
     private void drawDayBg(Canvas canvas, int x, int y, Paint paint) {
-        RectF rectF = new RectF(x - DAY_SELECTED_RECT_SIZE, y - DAY_SELECTED_RECT_SIZE,
-                x + DAY_SELECTED_RECT_SIZE, y + DAY_SELECTED_RECT_SIZE);
-        canvas.drawRoundRect(rectF, 10.0f, 10.0f, paint);
+        RectF rectF = new RectF(x - DAY_SELECTED_RECT_SIZE, y - DAY_SELECTED_RECT_SIZE, x + DAY_SELECTED_RECT_SIZE, y + DAY_SELECTED_RECT_SIZE);
+//        canvas.drawRoundRect(rectF, 10.0f, 10.0f, paint);
+        canvas.drawCircle(x, y - ConvertUtils.dp2px(getContext(),5), DAY_SELECTED_RECT_SIZE, paint);
     }
 
     /**
      * 在使用drawText方法时文字不能根据y坐标居中，所以重新计算y坐标
+     *
      * @param paint
      * @param y
      * @return

@@ -96,11 +96,11 @@ public class SimpleMonthAdapter extends RecyclerView.Adapter<SimpleMonthAdapter.
             throw new IllegalArgumentException("可选择的最小天数不能小于最大天数");
         }
 
-        if(dataModel.monthCount <= 0) {
+        if (dataModel.monthCount <= 0) {
             dataModel.monthCount = 12;
         }
 
-        if(dataModel.defTag == null) {
+        if (dataModel.defTag == null) {
             dataModel.defTag = "标签";
         }
 
@@ -180,7 +180,7 @@ public class SimpleMonthAdapter extends RecyclerView.Adapter<SimpleMonthAdapter.
      * @param calendarDay
      */
     protected void onDayTapped(CalendarDay calendarDay) {
-        if(mController != null) {
+        if (mController != null) {
             mController.onDayOfMonthSelected(calendarDay);
         }
         setRangeSelectedDay(calendarDay);
@@ -193,64 +193,76 @@ public class SimpleMonthAdapter extends RecyclerView.Adapter<SimpleMonthAdapter.
      */
     public void setRangeSelectedDay(CalendarDay calendarDay) {
         // 选择退房日期
-        if (rangeDays.getFirst() != null && rangeDays.getLast() == null) {
-            // 把比离入住日期大且是最近的已被占用或者无效日期找出来
-            mNearestDay = getNearestDay(rangeDays.getFirst());
-            // 所选日期范围内是否有被占用的日期
-            if (isContainSpecialDays(rangeDays.getFirst(), calendarDay, mBusyDays)) {
-                if(mController != null) {
-                    mController.alertSelectedFail(DatePickerController.FailEven.CONTAIN_NO_SELECTED);
-                }
-                return;
-            }
-            // 所选日期范围内是否有无效的日期
-            if (isContainSpecialDays(rangeDays.getFirst(), calendarDay, mInvalidDays)) {
-                if(mController != null) {
-                    mController.alertSelectedFail(DatePickerController.FailEven.CONTAIN_INVALID);
-                }
-                return;
-            }
-            // 所选退房日期不能再入住日期之前
-            if (calendarDay.getDate().before(rangeDays.getFirst().getDate())) {
-                if(mController != null) {
-                    mController.alertSelectedFail(DatePickerController.FailEven.END_MT_START);
-                }
-                return;
-            }
+//        if (rangeDays.getFirst() != null && rangeDays.getLast() == null) {
+//            // 把比离入住日期大且是最近的已被占用或者无效日期找出来
+//            mNearestDay = getNearestDay(rangeDays.getFirst());
+//            // 所选日期范围内是否有被占用的日期
+//            if (isContainSpecialDays(rangeDays.getFirst(), calendarDay, mBusyDays)) {
+//                if(mController != null) {
+//                    mController.alertSelectedFail(DatePickerController.FailEven.CONTAIN_NO_SELECTED);
+//                }
+//                return;
+//            }
+//            // 所选日期范围内是否有无效的日期
+//            if (isContainSpecialDays(rangeDays.getFirst(), calendarDay, mInvalidDays)) {
+//                if(mController != null) {
+//                    mController.alertSelectedFail(DatePickerController.FailEven.CONTAIN_INVALID);
+//                }
+//                return;
+//            }
+//            // 所选退房日期不能再入住日期之前
+//            if (calendarDay.getDate().before(rangeDays.getFirst().getDate())) {
+//                if(mController != null) {
+//                    mController.alertSelectedFail(DatePickerController.FailEven.END_MT_START);
+//                }
+//                return;
+//            }
+//
+//            int dayDiff = dateDiff(rangeDays.getFirst(), calendarDay);
+//            // 所选的日期范围不能小于最小限制
+//            if (dayDiff > 1 && mLeastDaysNum > dayDiff) {
+//                if(mController != null) {
+//                    mController.alertSelectedFail(DatePickerController.FailEven.NO_REACH_LEAST_DAYS);
+//                }
+//                return;
+//            }
+//            // 所选日期范围不能大于最大限制
+//            if (dayDiff > 1 && mMostDaysNum < dayDiff) {
+//                if(mController != null) {
+//                    mController.alertSelectedFail(DatePickerController.FailEven.NO_REACH_MOST_DAYS);
+//                }
+//                return;
+//            }
+//
+//            rangeDays.setLast(calendarDay);
+//
+//            // 把开始日期和结束日期中间的所有日期都加到list中
+//            if(mController != null) {
+//                mController.onDateRangeSelected(addSelectedDays());
+//            }
+//        } else if (rangeDays.getLast() != null) {   // 重新选择入住日期
+//            rangeDays.setFirst(calendarDay);
+//            rangeDays.setLast(null);
+//            // 离该天最近的已定或者禁用日期找出来
+//            mNearestDay = getNearestDay(calendarDay);
+//        } else {        // 第一次选择入住日期
+//            rangeDays.setFirst(calendarDay);
+//            // 离该天最近的已定或者禁用日期找出来
+//            mNearestDay = getNearestDay(calendarDay);
+//        }
+        rangeDays.setFirst(calendarDay);
+//        notifyDataSetChanged();
+        Date date = calendarDay.getDate();
+        long lastTime = date.getTime() + (29 * 24 * 60 * 60 * 1000l);
+        CalendarDay latCalendarDay = new CalendarDay(lastTime);
 
-            int dayDiff = dateDiff(rangeDays.getFirst(), calendarDay);
-            // 所选的日期范围不能小于最小限制
-            if (dayDiff > 1 && mLeastDaysNum > dayDiff) {
-                if(mController != null) {
-                    mController.alertSelectedFail(DatePickerController.FailEven.NO_REACH_LEAST_DAYS);
-                }
-                return;
-            }
-            // 所选日期范围不能大于最大限制
-            if (dayDiff > 1 && mMostDaysNum < dayDiff) {
-                if(mController != null) {
-                    mController.alertSelectedFail(DatePickerController.FailEven.NO_REACH_MOST_DAYS);
-                }
-                return;
-            }
+//        calendarDay.setTime(lastTime);
+        rangeDays.setLast(latCalendarDay);
 
-            rangeDays.setLast(calendarDay);
-
-            // 把开始日期和结束日期中间的所有日期都加到list中
-            if(mController != null) {
-                mController.onDateRangeSelected(addSelectedDays());
-            }
-        } else if (rangeDays.getLast() != null) {   // 重新选择入住日期
-            rangeDays.setFirst(calendarDay);
-            rangeDays.setLast(null);
-            // 离该天最近的已定或者禁用日期找出来
-            mNearestDay = getNearestDay(calendarDay);
-        } else {        // 第一次选择入住日期
-            rangeDays.setFirst(calendarDay);
-            // 离该天最近的已定或者禁用日期找出来
-            mNearestDay = getNearestDay(calendarDay);
+        // 把开始日期和结束日期中间的所有日期都加到list中
+        if (mController != null) {
+            mController.onDateRangeSelected(addSelectedDays());
         }
-
         notifyDataSetChanged();
     }
 

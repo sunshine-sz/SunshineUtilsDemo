@@ -46,7 +46,6 @@ public class DayPickerView extends RecyclerView {
         setLayoutManager(new LinearLayoutManager(paramContext));
         mContext = paramContext;
         setUpListView();
-
         onScrollListener = new OnScrollListener() {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
@@ -90,8 +89,9 @@ public class DayPickerView extends RecyclerView {
         this.dataModel = dataModel;
         this.mController = mController;
         setUpAdapter();
+        smoothScrollToPosition(getAdapter().getItemCount()-1);
         // 跳转到入住日期所在的月份
-        scrollToSelectedPosition(dataModel.selectedDays, dataModel.monthStart);
+//        scrollToSelectedPosition(dataModel.selectedDays, dataModel.monthStart);
     }
 
     private void scrollToSelectedPosition(SimpleMonthAdapter.SelectedDays<SimpleMonthAdapter.CalendarDay> selectedDays, int monthStart) {
