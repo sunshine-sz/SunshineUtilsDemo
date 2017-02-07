@@ -81,6 +81,7 @@ public class ClockView extends SurfaceView implements SurfaceHolder.Callback, Ru
         hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
         minute = Calendar.getInstance().get(Calendar.MINUTE);
         second = Calendar.getInstance().get(Calendar.SECOND);
+
         //获取holder对象，并设置回调
         holder = getHolder();
         holder.addCallback(this);
@@ -190,8 +191,8 @@ public class ClockView extends SurfaceView implements SurfaceHolder.Callback, Ru
                 }
             }
         }
-
         handler.sendEmptyMessage(0);
+
     }
 
     /**
@@ -265,7 +266,7 @@ public class ClockView extends SurfaceView implements SurfaceHolder.Callback, Ru
                 path.lineTo(secondPointerCoordinates[4], secondPointerCoordinates[5]);
                 path.close();
                 canvas.save();
-                canvas.rotate(180 + second * 6);
+                canvas.rotate(180 + (second+1) * 6);
                 canvas.drawPath(path, pointerPaint);
                 canvas.restore();
             }
@@ -286,6 +287,7 @@ public class ClockView extends SurfaceView implements SurfaceHolder.Callback, Ru
             switch (msg.what) {
                 case 0://改变时间
                     if (onTimeChangeListener != null) {
+
                         onTimeChangeListener.onTimeChange(ClockView.this, hour, minute, second);
                     }
                     break;

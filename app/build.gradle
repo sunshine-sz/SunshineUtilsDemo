@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-
+apply plugin: 'com.tencent.tinker.patch'
 android {
     compileSdkVersion 23
     buildToolsVersion '23.0.3'
@@ -33,5 +33,10 @@ dependencies {
     compile 'io.reactivex:rxjava:1.1.0'
     compile 'com.facebook.fresco:fresco:0.12.0'
     compile 'com.android.support:support-v4:23.4.0'
+    compile 'com.android.support:percent:23.4.0'
+    //可选，用于生成application类
+    provided('com.tencent.tinker:tinker-android-anno:1.7.6')
+    //tinker的核心库
+    compile('com.tencent.tinker:tinker-android-lib:1.7.6')
     testCompile 'junit:junit:4.12'
 }

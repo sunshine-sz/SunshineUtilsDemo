@@ -11,4 +11,10 @@
     <dimen name="header_month_height">50dip</dimen>
     <dimen name="selected_day_radius">16dip</dimen>
     <dimen name="calendar_height">270dip</dimen>
+
+    <!--
+Refer to App Widget Documentation for margin information
+http://developer.android.com/guide/topics/appwidgets/index.html#CreatingLayout
+    -->
+    <dimen name="widget_margin">8dp</dimen>
 </resources>

@@ -7,8 +7,10 @@ package com.sunshine.rxjavademo.utils;
  * 描述: Handler
  */
 public class MyHandler{
+
+
     public static String[] getImageUrls() {
-        String[] urls = new String[] {
+        String[] urls =  new String[] {
                 "https://static.pexels.com/photos/5854/sea-woman-legs-water-medium.jpg",
                 "https://static.pexels.com/photos/6245/kitchen-cooking-interior-decor-medium.jpg",
                 "https://static.pexels.com/photos/6041/nature-grain-moving-cereal-medium.jpg",

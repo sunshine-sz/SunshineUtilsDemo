@@ -4,14 +4,14 @@
     android:id="@+id/activity_today24_hour"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@color/colorPrimary"
     tools:context="com.sunshine.rxjavademo.ui.Today24HourActivity">
 
     <com.sunshine.rxjavademo.view.IndexHorizontalScrollView
     android:id="@+id/indexHorizontalScrollView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#66050505"
+    android:background="@color/colorPrimary"
     android:fadeScrollbars="false">
 
         <com.sunshine.rxjavademo.view.Today24HourView

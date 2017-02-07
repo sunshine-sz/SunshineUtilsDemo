@@ -16,4 +16,8 @@
     <color name="selected_day_background">#C2185B</color>
     <color name="selected_day_text">#FFFFFF</color>
     <color name="invalid_day_background">#c0c0c0</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="black">#2E2E2E</color>
+    <color name="yellow">#FFFF00</color>
 </resources>

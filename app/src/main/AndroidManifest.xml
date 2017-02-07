@@ -39,9 +39,21 @@
         <activity android:name=".ui.CameraActivity" />
         <activity android:name=".ui.ClockActivity" />
         <activity android:name=".ui.Today24HourActivity" />
-        <activity android:name=".ui.DragLayoutActivity"/>
-        <activity android:name=".ui.MorePagerActivity"/>
-        <activity android:name=".ui.CalendarActivity"/>
+        <activity android:name=".ui.DragLayoutActivity" />
+        <activity android:name=".ui.MorePagerActivity" />
+        <activity android:name=".ui.CalendarActivity" />
+        <activity android:name=".ui.FreeActivity"/>
+        <receiver android:name=".widget.MyWidget" >
+            <intent-filter >
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="cn.com.karl.widget.click" >
+                </action>
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_test_info" />
+        </receiver>
     </application>
 
 </manifest>

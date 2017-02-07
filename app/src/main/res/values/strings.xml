@@ -6,4 +6,10 @@
 
     <!-- 日历用到的typeface -->
     <string name="sans_serif" translatable="false">sans-serif</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+
+    <string name="radio_1">童年</string>
+    <string name="radio_2">壮年</string>
+    <string name="radio_3">暮年</string>
 </resources>

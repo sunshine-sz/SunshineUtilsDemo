@@ -216,6 +216,7 @@ public class Today24HourView extends View {
         }
         //底部水平的白线
         linePaint.setColor(Color.WHITE);
+        drawLeftTempText(canvas,10);
         canvas.drawLine(0, mHeight - bottomTextHeight, mWidth, mHeight - bottomTextHeight, linePaint);
         //中间温度的虚线
         Path path1 = new Path();

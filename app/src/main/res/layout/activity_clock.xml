@@ -5,33 +5,40 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center_horizontal"
-    tools:context="com.sunshine.rxjavademo.ui.ClockActivity">
-    <com.sunshine.rxjavademo.view.PorterDuffXfermodeView
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_gravity="center_horizontal" />
 
+    android:gravity="center"
+    tools:context="com.sunshine.rxjavademo.ui.ClockActivity">
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:textSize="40sp"
+        android:textStyle="bold"/>
     <com.sunshine.rxjavademo.view.ClockView
         android:id="@+id/clock_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+    <!--<com.sunshine.rxjavademo.view.PorterDuffXfermodeView
+           android:layout_width="200dp"
+           android:layout_height="200dp"
+           android:layout_gravity="center_horizontal" />
+       <com.sunshine.rxjavademo.view.DynamicWave
+           android:layout_width="match_parent"
+           android:layout_height="match_parent" />
 
-    <com.sunshine.rxjavademo.view.DynamicWave
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
-    <com.sunshine.rxjavademo.view.BrokenLineChartView
-        android:id="@+id/broken_line"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-
-    <CalendarView
-        android:id="@+id/calendar"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:maxDate="1479190205"
-        android:minDate="1447567805"/>
+       <com.sunshine.rxjavademo.view.BrokenLineChartView
+           android:id="@+id/broken_line"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content" />-->
+    <Button
+        android:id="@+id/bt_alarm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="设置闹钟"
+        android:textAllCaps="false"
+        android:visibility="invisible"/>
 
 </LinearLayout>

@@ -116,13 +116,16 @@ public class LoopRotarySwitchView extends RelativeLayout {
     public LoopRotarySwitchView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         this.mContext = context;
+        //获取自定义属性
         TypedArray typedArray=context.obtainStyledAttributes(attrs, R.styleable.LoopRotarySwitchView);
         mOrientation=typedArray.getInt(R.styleable.LoopRotarySwitchView_orientation,horizontal);
         autoRotation=typedArray.getBoolean(R.styleable.LoopRotarySwitchView_autoRotation,false);
         r=typedArray.getDimension(R.styleable.LoopRotarySwitchView_r,LoopR);
         int direction=typedArray.getInt(R.styleable.LoopRotarySwitchView_direction,0);
         typedArray.recycle();
+        //初始化手势
         mGestureDetector = new GestureDetector(context, getGeomeryController());
+        //设置展示方向
         if(mOrientation==horizontal){//如果是水平 z值为0  如果是竖直z值为90
             loopRotationZ=0;
         }else{
